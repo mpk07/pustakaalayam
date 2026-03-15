@@ -1,0 +1,10 @@
+[
+  { "id": "shruti", "label": "Shruti", "sanskritName": "श्रुति", "description": "Primary revelation.", "tags": ["Root"], "level": 1, "position": { "x": -300, "y": 0 } },
+  { "id": "smriti", "label": "Smriti", "sanskritName": "स्मृति", "description": "Tradition authored by humans.", "tags": ["Root"], "level": 1, "position": { "x": 300, "y": 0 } },
+  { "id": "rig", "label": "Rigveda", "sanskritName": "ऋग्वेद", "description": "Verses and hymns.", "tags": ["Shruti", "Veda"], "level": 2, "position": { "x": -600, "y": -300 } },
+  { "id": "yajur", "label": "Yajurveda", "sanskritName": "यजुर्वेद", "description": "Prose mantras for rituals.", "tags": ["Shruti", "Veda"], "level": 2, "position": { "x": -700, "y": -100 } },
+  { "id": "sama", "label": "Samaveda", "sanskritName": "सामवेद", "description": "Melodies and chants.", "tags": ["Shruti", "Veda"], "level": 2, "position": { "x": -700, "y": 100 } },
+  { "id": "atharva", "label": "Atharvaveda", "sanskritName": "अथर्ववेद", "description": "Everyday life procedures.", "tags": ["Shruti", "Veda"], "level": 2, "position": { "x": -600, "y": 300 } },
+  { "id": "ramayana", "label": "Ramayana", "sanskritName": "रामायण", "description": "The journey of Rama.", "tags": ["Smriti", "Itihasa"], "level": 2, "position": { "x": 700, "y": -300 } },
+  { "id": "mahabharata", "label": "Mahabharata", "sanskritName": "महाभारत", "description": "The great epic of the Bharata dynasty.", "tags": ["Smriti", "Itihasa"], "level": 2, "position": { "x": 700, "y": 400 } }
+]
