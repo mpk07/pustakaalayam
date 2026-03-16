@@ -24,14 +24,15 @@ export default function App() {
   const { setCenter } = useReactFlow();
 
   // THE SAFE ZOOM TRACKER
-  // This smoothly updates the CSS classes without causing React to crash
   const flowWrapperRef = useRef(null);
   useOnViewportChange({
     onChange: (viewport) => {
       if (!flowWrapperRef.current) return;
-      if (viewport.zoom < 0.35) {
+      
+      // Kept hidden until much closer (0.55)
+      if (viewport.zoom < 0.55) {
         flowWrapperRef.current.className = "absolute inset-0 z-10 zoom-far";
-      } else if (viewport.zoom < 0.75) {
+      } else if (viewport.zoom < 0.85) {
         flowWrapperRef.current.className = "absolute inset-0 z-10 zoom-mid";
       } else {
         flowWrapperRef.current.className = "absolute inset-0 z-10 zoom-close";
@@ -120,7 +121,6 @@ export default function App() {
           <span className="text-[30rem] md:text-[50rem] text-amber-500/10 dark:text-amber-600/15 font-serif transition-colors duration-700">🕉</span>
         </div>
 
-        {/* The flowWrapperRef is safely applied here to trigger the CSS zoom classes */}
         <div ref={flowWrapperRef} className="absolute inset-0 z-10 zoom-far">
           <ReactFlow
             nodes={nodes}
@@ -131,9 +131,11 @@ export default function App() {
             onEdgeClick={onEdgeClick}
             nodeTypes={nodeTypes}
             fitView
-            fitViewOptions={{ padding: 1.5, maxZoom: 1 }}
+            minZoom={0.4}
+            fitViewOptions={{ padding: 0.5, maxZoom: 1 }}
             colorMode={isDarkMode ? 'dark' : 'light'}
             defaultEdgeOptions={{
+              type: 'straight',
               style: { stroke: isDarkMode ? '#ea580c' : '#f59e0b', strokeWidth: 1.5 },
             }}
           >

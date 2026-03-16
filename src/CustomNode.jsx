@@ -2,19 +2,23 @@
 import { Handle, Position } from '@xyflow/react';
 
 export default function CustomNode({ data }) {
-  let sizeClasses = "w-32 h-32"; 
-  let labelClasses = "text-lg";
+  let sizeClasses = "w-44 h-44"; 
+  let labelClasses = "text-3xl";
   let shapeClasses = "rounded-full"; 
   let colorClasses = "bg-[#fffdf7] dark:bg-stone-900 border-2 border-red-600 dark:border-red-500 shadow-[0_0_15px_rgba(245,158,11,0.2)] dark:shadow-[0_0_15px_rgba(239,68,68,0.2)]";
 
-  // Sizing based on importance
+  // --- NEW: MASSIVE HIERARCHY SCALE ---
   if (data.level === 1) {
-    sizeClasses = "w-32 h-32";
+    // Roots (Shruti/Smriti) become massive anchors
+    sizeClasses = "w-48 h-48"; 
+    labelClasses = "text-3xl";
   } else if (data.level === 2) {
-    sizeClasses = "w-28 h-28";
-    labelClasses = "text-base";
+    // Major Texts (Vedas, Epics) become large planets
+    sizeClasses = "w-36 h-36"; 
+    labelClasses = "text-xl";
   } else if (data.level >= 3) {
-    sizeClasses = "w-20 h-20";
+    // Chapters and Deep Texts stay as small orbital moons
+    sizeClasses = "w-20 h-20"; 
     labelClasses = "text-sm";
   }
 
@@ -33,28 +37,28 @@ export default function CustomNode({ data }) {
 
   return (
     <div 
-      /* Notice the node-level class added here for the CSS to target */
-      className={`node-level-${data.level} ${sizeClasses} ${shapeClasses} ${colorClasses} flex flex-col items-center justify-center transition-all duration-300 cursor-pointer text-center p-2`}
+      className={`node-level-${data.level} ${sizeClasses} ${shapeClasses} ${colorClasses} flex flex-col items-center justify-center transition-all duration-300 cursor-pointer text-center p-2 relative`}
       title={data.description}
     >
-      <Handle type="target" position={Position.Top} className="opacity-0" />
-      <Handle type="target" position={Position.Bottom} className="opacity-0" />
-      <Handle type="target" position={Position.Left} className="opacity-0" />
-      <Handle type="target" position={Position.Right} className="opacity-0" />
+      <Handle 
+        type="target" 
+        position={Position.Top} 
+        style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0, pointerEvents: 'none' }} 
+      />
       
-      <span className={`font-bold text-red-700 dark:text-red-400 ${labelClasses}`}>
+      <span className={`font-bold text-red-700 dark:text-red-400 z-10 ${labelClasses}`}>
         {data.label}
       </span>
       
-      {/* Notice the node-sanskrit class added here */}
-      <span className="node-sanskrit text-xs text-amber-800 dark:text-amber-500 mt-1 font-serif">
+      <span className="node-sanskrit text-xs text-amber-800 dark:text-amber-500 mt-1 font-serif z-10">
         {data.sanskritName}
       </span>
 
-      <Handle type="source" position={Position.Top} className="opacity-0" />
-      <Handle type="source" position={Position.Bottom} className="opacity-0" />
-      <Handle type="source" position={Position.Left} className="opacity-0" />
-      <Handle type="source" position={Position.Right} className="opacity-0" />
+      <Handle 
+        type="source" 
+        position={Position.Bottom} 
+        style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0, pointerEvents: 'none' }} 
+      />
     </div>
   );
 }
