@@ -1,6 +1,6 @@
 // src/App.jsx
-import { useState, useCallback, useMemo } from 'react';
-import { ReactFlow, Background, Controls, applyNodeChanges, applyEdgeChanges, useReactFlow } from '@xyflow/react';
+import { useState, useCallback, useMemo, useRef } from 'react';
+import { ReactFlow, Background, Controls, applyNodeChanges, applyEdgeChanges, useReactFlow, useOnViewportChange } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import Fuse from 'fuse.js';
 
@@ -18,48 +18,53 @@ export default function App() {
   const [selectedEdge, setSelectedEdge] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
   
-  // Search State
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   
-  // Grab the React Flow camera controls
   const { setCenter } = useReactFlow();
 
-  // Initialize Fuse.js for fuzzy searching the raw data
+  // THE SAFE ZOOM TRACKER
+  // This smoothly updates the CSS classes without causing React to crash
+  const flowWrapperRef = useRef(null);
+  useOnViewportChange({
+    onChange: (viewport) => {
+      if (!flowWrapperRef.current) return;
+      if (viewport.zoom < 0.35) {
+        flowWrapperRef.current.className = "absolute inset-0 z-10 zoom-far";
+      } else if (viewport.zoom < 0.75) {
+        flowWrapperRef.current.className = "absolute inset-0 z-10 zoom-mid";
+      } else {
+        flowWrapperRef.current.className = "absolute inset-0 z-10 zoom-close";
+      }
+    }
+  });
+
   const fuse = useMemo(() => new Fuse(searchableData, {
     keys: ['label', 'sanskritName', 'tags'],
-    threshold: 0.3, // Allows slight typos
+    threshold: 0.3, 
   }), []);
 
-  // Handle typing in the search bar
   const handleSearch = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
     if (query.length > 1) {
-      const results = fuse.search(query).map(result => result.item);
-      setSearchResults(results);
+      setSearchResults(fuse.search(query).map(result => result.item));
     } else {
       setSearchResults([]);
     }
   };
 
-  // When a search result is clicked
   const onSearchResultClick = (nodeData) => {
     setSearchQuery('');
     setSearchResults([]);
-    
-    // Find the exact math coordinates of this node in our active graph
     const targetNode = nodes.find(n => n.id === nodeData.id);
     if (targetNode) {
-      // Select the node so the side panel opens
       setSelectedNode(targetNode);
       setSelectedEdge(null);
-      // Smoothly fly the camera to this node's exact X/Y coordinates and zoom in
       setCenter(targetNode.position.x, targetNode.position.y, { zoom: 1.2, duration: 800 });
     }
   };
 
-  // Standard graph event handlers
   const onNodesChange = useCallback((changes) => setNodes((nds) => applyNodeChanges(changes, nds)), []);
   const onEdgesChange = useCallback((changes) => setEdges((eds) => applyEdgeChanges(changes, eds)), []);
   const onNodeClick = (event, node) => { setSelectedNode(node); setSelectedEdge(null); };
@@ -70,40 +75,37 @@ export default function App() {
   return (
     <div className={`w-screen h-screen flex overflow-hidden font-sans transition-colors duration-300 ${isDarkMode ? 'dark bg-stone-950' : 'bg-[#fffbf0]'}`}>
       
-      {/* Top Left Controls */}
       <button 
         onClick={() => setIsDarkMode(!isDarkMode)}
-        className="absolute top-4 left-4 z-20 p-2 rounded-full bg-white/80 dark:bg-stone-800/80 text-amber-600 dark:text-amber-400 shadow border border-amber-200 dark:border-stone-700 hover:scale-105 transition-transform"
+        className="absolute top-4 left-4 z-20 p-2 rounded-full bg-white/40 dark:bg-stone-800/40 text-amber-600 dark:text-amber-400 shadow-sm border border-amber-200/50 dark:border-stone-700/50 hover:bg-white/60 backdrop-blur-md transition-all"
       >
-        {isDarkMode ? <Sun size={24} /> : <Moon size={24} />}
+        {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
       </button>
 
-      {/* THE SEARCH BAR (Top Center) */}
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-30 w-full max-w-md px-4">
-        <div className="relative">
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-amber-500">
-            <Search size={18} />
+      {/* THE SEARCH BAR */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-30 w-full max-w-sm px-4">
+        <div className="relative group">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-amber-500/70">
+            <Search size={16} />
           </div>
           <input
             type="text"
-            className="w-full pl-10 pr-4 py-3 rounded-full bg-white/90 dark:bg-stone-800/90 border border-amber-200 dark:border-stone-700 shadow-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-stone-800 dark:text-stone-200 placeholder-stone-400 backdrop-blur-sm transition-all"
-            placeholder="Search scriptures, tags, or Sanskrit..."
+            className="w-full pl-9 pr-4 py-2 text-sm rounded-full bg-white/40 dark:bg-stone-800/40 border border-amber-200/50 dark:border-stone-700/50 shadow-sm hover:shadow-md hover:bg-white/60 dark:hover:bg-stone-800/60 focus:bg-white/90 dark:focus:bg-stone-800/90 focus:outline-none focus:ring-1 focus:ring-amber-500/50 text-stone-800 dark:text-stone-200 placeholder-stone-500/70 backdrop-blur-md transition-all duration-300"
+            placeholder="Search scriptures..."
             value={searchQuery}
             onChange={handleSearch}
           />
         </div>
-        
-        {/* Search Results Dropdown */}
         {searchResults.length > 0 && (
-          <div className="absolute top-full mt-2 w-full bg-white dark:bg-stone-800 rounded-xl shadow-xl border border-amber-100 dark:border-stone-700 overflow-hidden max-h-60 overflow-y-auto">
+          <div className="absolute top-full mt-2 w-full bg-white/95 dark:bg-stone-800/95 backdrop-blur-md rounded-xl shadow-xl border border-amber-100 dark:border-stone-700 overflow-hidden max-h-60 overflow-y-auto">
             {searchResults.map((result) => (
               <button
                 key={result.id}
                 onClick={() => onSearchResultClick(result)}
-                className="w-full text-left px-4 py-3 hover:bg-amber-50 dark:hover:bg-stone-700 border-b border-stone-100 dark:border-stone-700/50 last:border-0 transition-colors"
+                className="w-full text-left px-4 py-2 hover:bg-amber-50 dark:hover:bg-stone-700 border-b border-stone-100 dark:border-stone-700/50 last:border-0 transition-colors"
               >
-                <div className="font-bold text-red-700 dark:text-red-400">{result.label}</div>
-                <div className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
+                <div className="font-bold text-sm text-red-700 dark:text-red-400">{result.label}</div>
+                <div className="text-[10px] text-stone-500 dark:text-stone-400 mt-0.5">
                   {result.sanskritName} • {result.tags?.join(', ')}
                 </div>
               </button>
@@ -118,7 +120,8 @@ export default function App() {
           <span className="text-[30rem] md:text-[50rem] text-amber-500/10 dark:text-amber-600/15 font-serif transition-colors duration-700">🕉</span>
         </div>
 
-        <div className="absolute inset-0 z-10">
+        {/* The flowWrapperRef is safely applied here to trigger the CSS zoom classes */}
+        <div ref={flowWrapperRef} className="absolute inset-0 z-10 zoom-far">
           <ReactFlow
             nodes={nodes}
             edges={edges}
@@ -131,7 +134,7 @@ export default function App() {
             fitViewOptions={{ padding: 1.5, maxZoom: 1 }}
             colorMode={isDarkMode ? 'dark' : 'light'}
             defaultEdgeOptions={{
-              style: { stroke: isDarkMode ? '#ea580c' : '#f59e0b', strokeWidth: 1.5, opacity: 0.20 },
+              style: { stroke: isDarkMode ? '#ea580c' : '#f59e0b', strokeWidth: 1.5 },
             }}
           >
             <Background color={isDarkMode ? '#444' : '#fde68a'} gap={30} size={2} className="opacity-40" />

@@ -27,5 +27,5 @@
   { "id": "mahabharata-svargarohana", "label": "Svargarohana", "sanskritName": "स्वर्गारोहण", "description": "Part of Mahabharata.", "tags": ["Mahabharata", "Chapter"], "level": 3, "radialParent": "mahabharata", "radius": 350 },
 
   { "id": "aditya-hrudayam", "label": "Aditya Hrudayam", "sanskritName": "आदित्यहृदयम्", "description": "Hymn to the Sun God.", "tags": ["Stotra"], "level": 4, "outwardParent": "ramayana-yuddha", "distance": 180 },
-  { "id": "bhagavad-gita", "label": "Bhagavad Gita", "sanskritName": "भगवद्गीता", "description": "The song of God.", "tags": ["Yoga", "Darshana"], "level": 4, "outwardParent": "mahabharata-bhishma", "distance": 200 }
+  { "id": "bhagavad-gita", "label": "Bhagavad Gita", "sanskritName": "भगवद्गीता", "description": "The song of God.", "tags": ["Yoga", "Darshana"], "level": 4, "outwardParent": "mahabharata-bhishma", "distance": 220, "customAngle": 0 }
 ]

@@ -7,19 +7,18 @@ import puranasData from './data/puranas.json';
 import darshanasData from './data/darshanas.json';
 
 export function generateGraph() {
-  // Merge all chopped JSON files into one master array
   const rawNodes = [...coreData, ...itihasaData, ...upanishadsData, ...puranasData, ...darshanasData];
   const nodes = [];
   const edges = [];
-  const mathData = {}; // Stores the exact {x, y, angle} for every node
+  const mathData = {}; 
 
-  // 1. Process Fixed Nodes (Roots and main branches)
+  // 1. Process Fixed Nodes
   rawNodes.filter(n => n.position).forEach(n => {
     mathData[n.id] = { x: n.position.x, y: n.position.y, angle: 0 };
     nodes.push({ id: n.id, type: 'custom', position: n.position, data: { ...n } });
   });
 
-  // 2. Process Radial Clusters (Kandas and Parvas)
+  // 2. Process Radial Clusters
   const radialParents = [...new Set(rawNodes.filter(n => n.radialParent).map(n => n.radialParent))];
   
   radialParents.forEach(parentId => {
@@ -36,35 +35,42 @@ export function generateGraph() {
       mathData[child.id] = { x, y, angle };
       nodes.push({ id: child.id, type: 'custom', position: { x, y }, data: { ...child } });
 
-      // Automatically draw the structural connection so you don't have to type it in edges.json
       edges.push({
         id: `e-${parentId}-${child.id}`,
         source: parentId,
         target: child.id,
+        className: `edge-level-${child.level} transition-opacity duration-300`, // Tags the edge for CSS hiding
         data: { relation: 'is-part-of' }
       });
     });
   });
 
-  // 3. Process Outward Branches (Gita and Aditya Hrudayam)
+  // 3. Process Outward Branches (Now supports custom angles)
   rawNodes.filter(n => n.outwardParent).forEach(child => {
     const parentMath = mathData[child.outwardParent];
     if (!parentMath) return;
 
-    // Push out along the exact same angle to prevent criss-crossing
-    const x = parentMath.x + child.distance * Math.cos(parentMath.angle);
-    const y = parentMath.y + child.distance * Math.sin(parentMath.angle);
+    // If a custom angle is defined in JSON, use it. Otherwise, use parent trajectory.
+    const angle = child.customAngle !== undefined ? child.customAngle : parentMath.angle;
+    
+    const x = parentMath.x + child.distance * Math.cos(angle);
+    const y = parentMath.y + child.distance * Math.sin(angle);
 
-    mathData[child.id] = { x, y, angle: parentMath.angle };
+    mathData[child.id] = { x, y, angle };
     nodes.push({ id: child.id, type: 'custom', position: { x, y }, data: { ...child } });
   });
 
   // 4. Append Custom Relationships
   customEdges.forEach(e => {
+    // Find the target node so we know what level this edge belongs to
+    const targetNode = rawNodes.find(n => n.id === e.target);
+    const targetLevel = targetNode ? targetNode.level : 2;
+
     edges.push({
       id: `e-${e.source}-${e.target}`,
       source: e.source,
       target: e.target,
+      className: `edge-level-${targetLevel} transition-opacity duration-300`, // Tags custom edges too
       data: { relation: e.relation },
       animated: e.animated || false,
       style: {
@@ -75,6 +81,5 @@ export function generateGraph() {
     });
   });
 
-  // Return exactly what React Flow needs, and the raw array for Fuse.js later
   return { initialNodes: nodes, initialEdges: edges, searchableData: rawNodes };
 }

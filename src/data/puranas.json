@@ -1,5 +1,5 @@
 [
-  { "id": "puranas", "label": "Puranas", "sanskritName": "पुराण", "description": "Ancient lore, mythologies, and cosmology.", "tags": ["Smriti", "Lore"], "level": 2, "position": { "x": 300, "y": 800 } },
+  { "id": "puranas", "label": "Puranas", "sanskritName": "पुराण", "description": "Ancient lore, mythologies, and cosmology.", "tags": ["Smriti", "Lore"], "level": 2, "position": { "x": 300, "y": 1100 } },
   { "id": "purana-brahma", "label": "Brahma", "sanskritName": "ब्रह्म", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
   { "id": "purana-padma", "label": "Padma", "sanskritName": "पद्म", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
   { "id": "purana-vishnu", "label": "Vishnu", "sanskritName": "विष्णु", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },

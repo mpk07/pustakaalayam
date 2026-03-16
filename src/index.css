@@ -1,1 +1,29 @@
 @import "tailwindcss";
+
+/* --- CSS SEMANTIC ZOOM --- */
+/* Hide Level 3 & 4 (Chapters and Deep Texts) when zoomed out */
+.zoom-far .node-level-3,
+.zoom-far .node-level-4,
+.zoom-far .edge-level-3,
+.zoom-far .edge-level-4 {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.4s ease;
+}
+
+/* Hide Level 4 (Deep Texts) at mid-zoom */
+.zoom-mid .node-level-4,
+.zoom-mid .edge-level-4 {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.4s ease;
+}
+
+/* Hide Sanskrit subtitles until completely zoomed in */
+.zoom-far .node-sanskrit,
+.zoom-mid .node-sanskrit {
+  opacity: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}

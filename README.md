@@ -1,16 +1,36 @@
-# React + Vite
+# 🕉️ Pustakaalayam
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Pustakaalayam (The Library) is an interactive, mathematics-driven knowledge graph mapping the vast landscape of ancient Indian scriptures, philosophies, and texts. 
 
-Currently, two official plugins are available:
+Built as a visual learning tool, it allows users to explore the structural relationships between Shruti and Smriti, from the root Vedas down to specific chapters (Parvas/Kandas) and individual Stotras.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
+* **Infinite Semantic Canvas:** Explore the hierarchy of texts. As you zoom out, chapters collapse into structural dots to prevent visual clutter.
+* **Algorithmic Layouts:** Sub-texts (like the 18 Parvas of the Mahabharata or the 10 Principal Upanishads) are mapped dynamically using trigonometry to form perfect orbital clusters.
+* **Fuzzy Search:** Instantly fly the camera to any text, chapter, or philosophy using the built-in search engine.
+* **Ontological Edges:** Relationships between texts are strictly defined (e.g., `is-part-of`, `contains-teaching`, `contains-stotra`) allowing for future data-mining.
 
-## React Compiler
+## Tech Stack
+* **Frontend:** React, Tailwind CSS
+* **Graph Engine:** React Flow (`@xyflow/react`)
+* **Search:** Fuse.js
+* **Build Tool:** Vite
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Running Locally
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/mpk07/pustakaalayam.git](https://github.com/YOUR_USERNAME/pustakaalayam.git)
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd pustakaalayam
+   ```
+3. Install dependencies:
+   ```bash
+   npm install --legacy-peer-deps
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```

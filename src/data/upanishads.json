@@ -1,5 +1,5 @@
 [
-  { "id": "upanishads", "label": "Upanishads", "sanskritName": "उपनिषद्", "description": "Philosophical texts forming the theoretical basis of Hindu religion.", "tags": ["Shruti", "Philosophy"], "level": 2, "position": { "x": -300, "y": -700 } },
+  { "id": "upanishads", "label": "Upanishads", "sanskritName": "उपनिषद्", "description": "Philosophical texts forming the theoretical basis of Hindu religion.", "tags": ["Shruti", "Philosophy"], "level": 2, "position": { "x": -500, "y": -700 } },
   { "id": "up-isha", "label": "Isha", "sanskritName": "ईश", "tags": ["Upanishad", "Chapter"], "level": 3, "radialParent": "upanishads", "radius": 220 },
   { "id": "up-kena", "label": "Kena", "sanskritName": "केन", "tags": ["Upanishad", "Chapter"], "level": 3, "radialParent": "upanishads", "radius": 220 },
   { "id": "up-katha", "label": "Katha", "sanskritName": "कठ", "tags": ["Upanishad", "Chapter"], "level": 3, "radialParent": "upanishads", "radius": 220 },
