@@ -152,7 +152,7 @@ export default function App() {
           
           {selectedNode && (
             <>
-              <h2 className="text-2xl font-bold text-red-700 dark:text-red-500 mb-1">{selectedNode.data.label}</h2>
+              <h2 className="text-2xl font-bold text-red-700 dark:text-red-500 mb-1">{selectedNode.data.fullTitle || selectedNode.data.label}</h2>
               <p className="text-xl text-amber-600 dark:text-amber-500 font-serif mb-4">{selectedNode.data.sanskritName}</p>
               <div className="flex flex-wrap gap-2 mb-6">
                 {(selectedNode.data.tags || []).map(tag => (
