@@ -1,0 +1,13 @@
+[
+  { "id": "upanishads", "label": "Upanishads", "sanskritName": "उपनिषद्", "description": "Philosophical texts forming the theoretical basis of Hindu religion.", "tags": ["Shruti", "Philosophy"], "level": 2, "position": { "x": -300, "y": -700 } },
+  { "id": "up-isha", "label": "Isha", "sanskritName": "ईश", "tags": ["Upanishad", "Chapter"], "level": 3, "radialParent": "upanishads", "radius": 220 },
+  { "id": "up-kena", "label": "Kena", "sanskritName": "केन", "tags": ["Upanishad", "Chapter"], "level": 3, "radialParent": "upanishads", "radius": 220 },
+  { "id": "up-katha", "label": "Katha", "sanskritName": "कठ", "tags": ["Upanishad", "Chapter"], "level": 3, "radialParent": "upanishads", "radius": 220 },
+  { "id": "up-prashna", "label": "Prashna", "sanskritName": "प्रश्न", "tags": ["Upanishad", "Chapter"], "level": 3, "radialParent": "upanishads", "radius": 220 },
+  { "id": "up-mundaka", "label": "Mundaka", "sanskritName": "मुण्डक", "tags": ["Upanishad", "Chapter"], "level": 3, "radialParent": "upanishads", "radius": 220 },
+  { "id": "up-mandukya", "label": "Mandukya", "sanskritName": "माण्डूक्य", "tags": ["Upanishad", "Chapter"], "level": 3, "radialParent": "upanishads", "radius": 220 },
+  { "id": "up-taittiriya", "label": "Taittiriya", "sanskritName": "तैत्तिरीय", "tags": ["Upanishad", "Chapter"], "level": 3, "radialParent": "upanishads", "radius": 220 },
+  { "id": "up-aitareya", "label": "Aitareya", "sanskritName": "ऐतरेय", "tags": ["Upanishad", "Chapter"], "level": 3, "radialParent": "upanishads", "radius": 220 },
+  { "id": "up-chandogya", "label": "Chandogya", "sanskritName": "छान्दोग्य", "tags": ["Upanishad", "Chapter"], "level": 3, "radialParent": "upanishads", "radius": 220 },
+  { "id": "up-brihadaranyaka", "label": "Brihadaranyaka", "sanskritName": "बृहदारण्यक", "tags": ["Upanishad", "Chapter"], "level": 3, "radialParent": "upanishads", "radius": 220 }
+]

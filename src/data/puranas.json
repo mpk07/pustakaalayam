@@ -1,0 +1,21 @@
+[
+  { "id": "puranas", "label": "Puranas", "sanskritName": "पुराण", "description": "Ancient lore, mythologies, and cosmology.", "tags": ["Smriti", "Lore"], "level": 2, "position": { "x": 300, "y": 800 } },
+  { "id": "purana-brahma", "label": "Brahma", "sanskritName": "ब्रह्म", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-padma", "label": "Padma", "sanskritName": "पद्म", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-vishnu", "label": "Vishnu", "sanskritName": "विष्णु", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-shiva", "label": "Shiva", "sanskritName": "शिव", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-bhagavata", "label": "Bhagavata", "sanskritName": "भागवत", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-narada", "label": "Narada", "sanskritName": "नारद", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-markandeya", "label": "Markandeya", "sanskritName": "मार्कण्डेय", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-agni", "label": "Agni", "sanskritName": "अग्नि", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-bhavishya", "label": "Bhavishya", "sanskritName": "भविष्य", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-brahmavaivarta", "label": "Brahmavaivarta", "sanskritName": "ब्रह्मवैवर्त", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-linga", "label": "Linga", "sanskritName": "लिङ्ग", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-varaha", "label": "Varaha", "sanskritName": "वराह", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-skanda", "label": "Skanda", "sanskritName": "स्कन्द", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-vamana", "label": "Vamana", "sanskritName": "वामन", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-kurma", "label": "Kurma", "sanskritName": "कूर्म", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-matsya", "label": "Matsya", "sanskritName": "मत्स्य", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-garuda", "label": "Garuda", "sanskritName": "गरुड", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 },
+  { "id": "purana-brahmanda", "label": "Brahmanda", "sanskritName": "ब्रह्माण्ड", "tags": ["Purana", "Chapter"], "level": 3, "radialParent": "puranas", "radius": 320 }
+]

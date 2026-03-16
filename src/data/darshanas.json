@@ -1,0 +1,9 @@
+[
+  { "id": "darshanas", "label": "Darshanas", "sanskritName": "दर्शन", "description": "The six orthodox schools of Hindu philosophy.", "tags": ["Smriti", "Darshana"], "level": 2, "position": { "x": 0, "y": -500 } },
+  { "id": "darshana-samkhya", "label": "Samkhya", "sanskritName": "सांख्य", "tags": ["Darshana"], "level": 3, "radialParent": "darshanas", "radius": 200 },
+  { "id": "darshana-yoga", "label": "Yoga", "sanskritName": "योग", "tags": ["Darshana"], "level": 3, "radialParent": "darshanas", "radius": 200 },
+  { "id": "darshana-nyaya", "label": "Nyaya", "sanskritName": "न्याय", "tags": ["Darshana"], "level": 3, "radialParent": "darshanas", "radius": 200 },
+  { "id": "darshana-vaisheshika", "label": "Vaisheshika", "sanskritName": "वैशेषिक", "tags": ["Darshana"], "level": 3, "radialParent": "darshanas", "radius": 200 },
+  { "id": "darshana-mimamsa", "label": "Mimamsa", "sanskritName": "मीमांसा", "tags": ["Darshana"], "level": 3, "radialParent": "darshanas", "radius": 200 },
+  { "id": "darshana-vedanta", "label": "Vedanta", "sanskritName": "वेदान्त", "tags": ["Darshana"], "level": 3, "radialParent": "darshanas", "radius": 200 }
+]

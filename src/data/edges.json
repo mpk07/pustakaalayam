@@ -6,5 +6,8 @@
   { "source": "smriti", "target": "ramayana", "relation": "is-part-of" },
   { "source": "smriti", "target": "mahabharata", "relation": "is-part-of" },
   { "source": "ramayana-yuddha", "target": "aditya-hrudayam", "relation": "contains-stotra", "animated": true, "dash": "4,4" },
-  { "source": "mahabharata-bhishma", "target": "bhagavad-gita", "relation": "contains-teaching", "dash": "8,4", "width": 2.5 }
+  { "source": "mahabharata-bhishma", "target": "bhagavad-gita", "relation": "contains-teaching", "dash": "8,4", "width": 2.5 },
+  { "source": "shruti", "target": "upanishads", "relation": "is-part-of" },
+  { "source": "smriti", "target": "puranas", "relation": "is-part-of" },
+  { "source": "smriti", "target": "darshanas", "relation": "is-part-of" }
 ]

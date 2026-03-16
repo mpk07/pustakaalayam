@@ -2,10 +2,13 @@
 import coreData from './data/core.json';
 import itihasaData from './data/itihasas.json';
 import customEdges from './data/edges.json';
+import upanishadsData from './data/upanishads.json';
+import puranasData from './data/puranas.json';
+import darshanasData from './data/darshanas.json';
 
 export function generateGraph() {
   // Merge all chopped JSON files into one master array
-  const rawNodes = [...coreData, ...itihasaData];
+  const rawNodes = [...coreData, ...itihasaData, ...upanishadsData, ...puranasData, ...darshanasData];
   const nodes = [];
   const edges = [];
   const mathData = {}; // Stores the exact {x, y, angle} for every node

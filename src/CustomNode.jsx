@@ -10,22 +10,42 @@ export default function CustomNode({ data }) {
   let showDetails = true;
 
   if (data.level === 2) {
-    // Vedas, Itihasas
     sizeClasses = zoom > 0.6 ? "w-28 h-28" : "w-20 h-20";
     labelClasses = zoom > 0.6 ? "text-base" : "text-sm";
     isNodeVisible = zoom > 0.3; 
     showDetails = zoom > 0.7;   
   } else if (data.level >= 3) {
-    // Parvas, Kandas
     sizeClasses = zoom > 0.8 ? "w-20 h-20" : "w-12 h-12";
     labelClasses = zoom > 0.8 ? "text-xs" : "text-[10px]";
     isNodeVisible = zoom > 0.5;
     showDetails = zoom > 1.0;
   }
 
+  // --- NEW: AESTHETIC POLISH LOGIC ---
+  // Default to the classic solid circle
+  let shapeClasses = "rounded-full"; 
+  let colorClasses = "bg-[#fffdf7] dark:bg-stone-900 border-2 border-red-600 dark:border-red-500 shadow-[0_0_15px_rgba(245,158,11,0.2)] dark:shadow-[0_0_15px_rgba(239,68,68,0.2)] hover:shadow-[0_0_20px_rgba(239,68,68,0.4)]";
+
+  const tags = data.tags || [];
+
+  if (tags.includes('Root')) {
+    // Heavy, foundational glowing squares
+    shapeClasses = "rounded-2xl"; 
+    colorClasses = "bg-red-50 dark:bg-red-950/30 border-2 border-red-700 dark:border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.3)] hover:shadow-[0_0_25px_rgba(239,68,68,0.5)]";
+  } else if (tags.includes('Chapter')) {
+    // Lighter, dashed circles for sub-components
+    shapeClasses = "rounded-full";
+    colorClasses = "bg-white/80 dark:bg-stone-900/80 border-2 border-dashed border-amber-500 dark:border-amber-600 shadow-sm hover:border-amber-600 hover:shadow-md";
+  } else if (tags.includes('Stotra') || tags.includes('Darshana')) {
+    // Rectangular "book/scroll" shapes with a saffron tint
+    shapeClasses = "rounded-md"; 
+    colorClasses = "bg-amber-50/90 dark:bg-amber-900/20 border-2 border-amber-600 dark:border-amber-500 shadow-md hover:shadow-lg";
+  }
+  // -----------------------------------
+
   if (!isNodeVisible) {
     return (
-      <div className="w-4 h-4 rounded-full bg-amber-500/80 dark:bg-red-500/80 shadow-sm transition-all" title={data.label}>
+      <div className={`w-4 h-4 ${shapeClasses} bg-amber-500/80 dark:bg-red-500/80 shadow-sm transition-all`} title={data.label}>
         <Handle type="target" position={Position.Top} className="opacity-0" />
         <Handle type="target" position={Position.Bottom} className="opacity-0" />
         <Handle type="target" position={Position.Left} className="opacity-0" />
@@ -40,11 +60,7 @@ export default function CustomNode({ data }) {
 
   return (
     <div 
-      className={`${sizeClasses} rounded-full flex flex-col items-center justify-center 
-                 bg-[#fffdf7] dark:bg-stone-900 
-                 border-2 border-red-600 dark:border-red-500 
-                 shadow-[0_0_15px_rgba(245,158,11,0.2)] dark:shadow-[0_0_15px_rgba(239,68,68,0.2)]
-                 hover:shadow-[0_0_20px_rgba(239,68,68,0.4)] transition-all duration-300 cursor-pointer text-center p-2`}
+      className={`${sizeClasses} ${shapeClasses} ${colorClasses} flex flex-col items-center justify-center transition-all duration-300 cursor-pointer text-center p-2`}
       title={data.description}
     >
       <Handle type="target" position={Position.Top} className="opacity-0" />
