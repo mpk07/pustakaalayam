@@ -1,0 +1,10 @@
+[
+  { "id": "vedangas", "label": "Vedangas", "sanskritName": "वेदाङ्ग", "description": "The six auxiliary disciplines required for the understanding and study of the Vedas.", "tags": ["Smriti", "Philosophy"], "level": 2, "position": { "x": -800, "y": 800 } },
+  
+  { "id": "vedanga-shiksha", "label": "Shiksha", "fullTitle": "Shiksha (Phonetics)", "sanskritName": "शिक्षा | శిక్ష", "description": "Study of pronunciation, phonetics, and acoustics.", "tags": ["Vedanga"], "level": 3, "radialParent": "vedangas", "radius": 250 },
+  { "id": "vedanga-kalpa", "label": "Kalpa", "fullTitle": "Kalpa (Ritual)", "sanskritName": "कल्प | కల్ప", "description": "Procedures and instructions for Vedic rituals.", "tags": ["Vedanga"], "level": 3, "radialParent": "vedangas", "radius": 250 },
+  { "id": "vedanga-vyakarana", "label": "Vyakarana", "fullTitle": "Vyakarana (Grammar)", "sanskritName": "व्याकरण | వ్యాకరణ", "description": "Grammar and linguistic analysis (e.g., Panini's Ashtadhyayi).", "tags": ["Vedanga"], "level": 3, "radialParent": "vedangas", "radius": 250 },
+  { "id": "vedanga-nirukta", "label": "Nirukta", "fullTitle": "Nirukta (Etymology)", "sanskritName": "निरुक्त | నిరుక్త", "description": "Etymology and explanation of complex Vedic words.", "tags": ["Vedanga"], "level": 3, "radialParent": "vedangas", "radius": 250 },
+  { "id": "vedanga-chandas", "label": "Chandas", "fullTitle": "Chandas (Meter)", "sanskritName": "छन्दस् | ఛందస్సు", "description": "Study of poetic meters and rhythmic structure.", "tags": ["Vedanga"], "level": 3, "radialParent": "vedangas", "radius": 250 },
+  { "id": "vedanga-jyotisha", "label": "Jyotisha", "fullTitle": "Jyotisha (Astronomy)", "sanskritName": "ज्योतिष | జ్యోతిషం", "description": "Timekeeping, astronomy, and astrology for scheduling rituals.", "tags": ["Vedanga"], "level": 3, "radialParent": "vedangas", "radius": 250 }
+]

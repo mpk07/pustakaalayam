@@ -1,4 +1,5 @@
 // src/layoutEngine.js
+import vedangasData from './data/vedangas.json';
 import coreData from './data/core.json';
 import itihasaData from './data/itihasas.json';
 import customEdges from './data/edges.json';
@@ -7,7 +8,7 @@ import puranasData from './data/puranas.json';
 import darshanasData from './data/darshanas.json';
 
 export function generateGraph() {
-  const rawNodes = [...coreData, ...itihasaData, ...upanishadsData, ...puranasData, ...darshanasData];
+  const rawNodes = [...coreData, ...itihasaData, ...upanishadsData, ...puranasData, ...darshanasData, ...vedangasData];
   const nodes = [];
   const edges = [];
   const mathData = {}; 
