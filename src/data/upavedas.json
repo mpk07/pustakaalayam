@@ -1,0 +1,9 @@
+[
+  { "id": "upaveda-ayur", "label": "Ayurveda", "fullTitle": "Ayurveda (Medicine)", "sanskritName": "आयुर्वेद | ఆయుర్వేదం", "description": "The science of life, health, and medicine.", "tags": ["Upaveda", "Science"], "level": 3, "radialParent": "rig", "radius": 220 },
+  
+  { "id": "upaveda-dhanur", "label": "Dhanurveda", "fullTitle": "Dhanurveda (Martial Arts)", "sanskritName": "धनुर्वेद | ధనుర్వేదం", "description": "The science of archery, warfare, and martial arts.", "tags": ["Upaveda", "Science"], "level": 3, "radialParent": "yajur", "radius": 220 },
+  
+  { "id": "upaveda-gandharva", "label": "Gandharvaveda", "fullTitle": "Gandharvaveda (Music & Arts)", "sanskritName": "गान्धर्ववेद | గాంధర్వవేదం", "description": "The study of music, dance, and performing arts.", "tags": ["Upaveda", "Art"], "level": 3, "radialParent": "sama", "radius": 220 },
+  
+  { "id": "upaveda-sthapatya", "label": "Sthapatyaveda", "fullTitle": "Sthapatyaveda (Architecture)", "sanskritName": "स्थापत्यवेद | స్థాపత్యవేదం", "description": "The science of architecture, engineering, and spatial design.", "tags": ["Upaveda", "Science"], "level": 3, "radialParent": "atharva", "radius": 220 }
+]

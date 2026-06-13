@@ -6,9 +6,10 @@ import customEdges from './data/edges.json';
 import upanishadsData from './data/upanishads.json';
 import puranasData from './data/puranas.json';
 import darshanasData from './data/darshanas.json';
+import upavedasData from './data/upavedas.json';
 
 export function generateGraph() {
-  const rawNodes = [...coreData, ...itihasaData, ...upanishadsData, ...puranasData, ...darshanasData, ...vedangasData];
+  const rawNodes = [...coreData, ...itihasaData, ...upanishadsData, ...puranasData, ...darshanasData, ...vedangasData, ...upavedasData];
   const nodes = [];
   const edges = [];
   const mathData = {}; 
