@@ -117,9 +117,11 @@ export default function App() {
 
       {/* THE CANVAS */}
       <div className="flex-grow h-full relative flex items-center justify-center">
-        <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center z-0 overflow-hidden">
-          <span className="text-[30rem] md:text-[50rem] text-amber-500/10 dark:text-amber-600/15 font-serif transition-colors duration-700">🕉</span>
-        </div>
+        {isDarkMode && (
+          <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center z-0 overflow-hidden">
+            <span className="text-[30rem] md:text-[50rem] text-amber-500/10 dark:text-amber-600/15 font-serif transition-colors duration-700">🕉</span>
+          </div>
+        )}
 
         <div ref={flowWrapperRef} className="absolute inset-0 z-10 zoom-far">
           <ReactFlow
