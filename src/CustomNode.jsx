@@ -7,19 +7,19 @@ export default function CustomNode({ data }) {
   let shapeClasses = "rounded-full"; 
   let colorClasses = "bg-[#fffdf7] dark:bg-stone-900 border-2 border-red-600 dark:border-red-500 shadow-[0_0_15px_rgba(245,158,11,0.2)] dark:shadow-[0_0_15px_rgba(239,68,68,0.2)]";
 
-  // --- NEW: MASSIVE HIERARCHY SCALE ---
+  // --- MASSIVE HIERARCHY SCALE ---
   if (data.level === 1) {
-    // Roots (Shruti/Smriti) become massive anchors
     sizeClasses = "w-48 h-48"; 
     labelClasses = "text-3xl";
   } else if (data.level === 2) {
-    // Major Texts (Vedas, Epics) become large planets
     sizeClasses = "w-36 h-36"; 
     labelClasses = "text-xl";
-  } else if (data.level >= 3) {
-    // Chapters and Deep Texts stay as small orbital moons
+  } else if (data.level === 3 || data.level === 4) {
     sizeClasses = "w-20 h-20"; 
     labelClasses = "text-sm";
+  } else if (data.level >= 5) {
+    sizeClasses = "w-16 h-16"; 
+    labelClasses = "text-xs";
   }
 
   // Aesthetics based on tags
@@ -34,6 +34,11 @@ export default function CustomNode({ data }) {
     shapeClasses = "rounded-md"; 
     colorClasses = "bg-amber-50/90 dark:bg-amber-900/20 border-2 border-amber-600 dark:border-amber-500 shadow-md";
   }
+
+  // --- NEW: STRING SPLIT HACK ---
+  // This grabs everything before the "|" symbol so the bubble only shows the first language.
+  // The side panel will still pull the full `data.sanskritName` string naturally!
+  const displaySanskrit = data.sanskritName ? data.sanskritName.split('|')[0].trim() : '';
 
   return (
     <div 
@@ -50,8 +55,9 @@ export default function CustomNode({ data }) {
         {data.label}
       </span>
       
-      <span className="node-sanskrit text-xs text-amber-800 dark:text-amber-500 mt-1 font-serif z-10">
-        {data.sanskritName}
+      {/* Updated with smaller text, tighter line-height, and break-words to prevent spillover */}
+      <span className="node-sanskrit text-[10px] leading-tight text-amber-800 dark:text-amber-500 mt-1 font-serif z-10 break-words w-full px-1">
+        {displaySanskrit}
       </span>
 
       <Handle 

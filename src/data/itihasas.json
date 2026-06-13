@@ -30,6 +30,25 @@
   { "id": "mahabharata-mahaprasthanika", "label": "Mahaprasthanika", "fullTitle": "Mahaprasthanika Parva", "sanskritName": "महाप्रस्थानिकपर्व", "tags": ["Chapter", "Mahabharata"], "level": 3, "radialParent": "mahabharata", "radius": 280 },
   { "id": "mahabharata-svargarohana", "label": "Svargarohana", "fullTitle": "Svargarohana Parva", "sanskritName": "स्वर्गारोहणपर्व", "tags": ["Chapter", "Mahabharata"], "level": 3, "radialParent": "mahabharata", "radius": 280 },
   
-  { "id": "bhagavad-gita", "label": "Bhagavad Gita", "fullTitle": "Bhagavad Gita", "sanskritName": "भगवद्गीता", "description": "The song of God.", "tags": ["Yoga", "Darshana"], "level": 4, "outwardParent": "mahabharata-bhishma", "distance": 450, "customAngle": 0 },
-  { "id": "aditya-hrudayam", "label": "Aditya Hrudayam", "fullTitle": "Aditya Hrudayam Stotram", "sanskritName": "आदित्यहृदयम्", "description": "Hymn dedicated to the Sun God, taught by Sage Agastya to Lord Rama.", "tags": ["Stotra"], "level": 4, "outwardParent": "ramayana-yuddha", "distance": 350, "customAngle": 0 }
-]
+  { "id": "bhagavad-gita", "label": "Bhagavad Gita", "fullTitle": "Bhagavad Gita", "sanskritName": "भगवद्गीता", "description": "The song of God.", "tags": ["Yoga", "Darshana"], "level": 4, "outwardParent": "mahabharata-bhishma", "distance": 1000, "customAngle": 0 },
+  { "id": "aditya-hrudayam", "label": "Aditya Hrudayam", "fullTitle": "Aditya Hrudayam Stotram", "sanskritName": "आदित्यहृदयम्", "description": "Hymn dedicated to the Sun God, taught by Sage Agastya to Lord Rama.", "tags": ["Stotra"], "level": 4, "outwardParent": "ramayana-yuddha", "distance": 350, "customAngle": 0 },
+
+  { "id": "gita-1", "label": "Ch 1", "fullTitle": "Arjuna Vishada Yoga", "sanskritName": "अर्जुनविषादयोगः | అర్జున విషాద యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-2", "label": "Ch 2", "fullTitle": "Sankhya Yoga", "sanskritName": "साङ्ख्ययोगः | సాంఖ్య యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-3", "label": "Ch 3", "fullTitle": "Karma Yoga", "sanskritName": "कर्मयोगः | కర్మ యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-4", "label": "Ch 4", "fullTitle": "Jnana Karma Sanyasa Yoga", "sanskritName": "ज्ञानकर्मसंन्यासयोगः | జ్ఞాన కర్మ సన్న్యాస యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-5", "label": "Ch 5", "fullTitle": "Karma Sanyasa Yoga", "sanskritName": "कर्मसंन्यासयोगः | కర్మ సన్న్యాస యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-6", "label": "Ch 6", "fullTitle": "Dhyana Yoga", "sanskritName": "ध्यानयोगः | ధ్యాన యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-7", "label": "Ch 7", "fullTitle": "Jnana Vijnana Yoga", "sanskritName": "ज्ञानविज्ञानयोगः | జ్ఞాన విజ్ఞాన యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-8", "label": "Ch 8", "fullTitle": "Akshara Brahma Yoga", "sanskritName": "अक्षरब्रह्मयोगः | అక్షర బ్రహ్మ యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-9", "label": "Ch 9", "fullTitle": "Raja Vidya Raja Guhya Yoga", "sanskritName": "राजविद्याराजगुह्ययोगः | రాజ విద్యా రాజ గుహ్య యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-10", "label": "Ch 10", "fullTitle": "Vibhuti Yoga", "sanskritName": "विभूतियोगः | విభూతి యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-11", "label": "Ch 11", "fullTitle": "Viswarupa Darshana Yoga", "sanskritName": "विश्वरूपदर्शनयोगः | విశ్వరూప దర్శన యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-12", "label": "Ch 12", "fullTitle": "Bhakti Yoga", "sanskritName": "भक्तियोगः | భక్తి యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-13", "label": "Ch 13", "fullTitle": "Kshetra Kshetrajna Vibhaga Yoga", "sanskritName": "क्षेत्रक्षेत्रज्ञविभागयोगः | క్షేత్ర క్షేత్రజ్ఞ విభాగ యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-14", "label": "Ch 14", "fullTitle": "Gunatraya Vibhaga Yoga", "sanskritName": "गुणत्रयविभागयोगः | గుణత్రయ విభాగ యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-15", "label": "Ch 15", "fullTitle": "Purushottama Yoga", "sanskritName": "पुरुषोत्तमयोगः | పురుషోత్తమ యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-16", "label": "Ch 16", "fullTitle": "Daivasura Sampad Vibhaga Yoga", "sanskritName": "दैवासुरसम्पद्विभागयोगः | దైవాసుర సంపద్విభాగ యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-17", "label": "Ch 17", "fullTitle": "Shraddhatraya Vibhaga Yoga", "sanskritName": "श्रद्धात्रयविभागयोगः | శ్రద్ధాత్రయ విభాగ యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 },
+  { "id": "gita-18", "label": "Ch 18", "fullTitle": "Moksha Sanyasa Yoga", "sanskritName": "मोक्षसंन्यासयोगः | మోక్ష సన్న్యాస యోగము", "tags": ["Chapter", "Gita"], "level": 5, "radialParent": "bhagavad-gita", "radius": 450 }
+  ]
